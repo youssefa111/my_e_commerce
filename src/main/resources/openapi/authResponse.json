@@ -1,0 +1,23 @@
+{
+  "registerRequest": {
+    "firstName":"rafeek",
+    "lastName":"eldarb",
+    "dateOfBirth":"1999-03-01",
+    "joinDate":"2023-03-23",
+    "address":"Nasr City",
+    "phone1":"01124578925",
+    "username":"rafeek_eldarb2",
+    "email":"r2.n@gmail.com",
+    "password":"123456r",
+    "role":{
+      "id":3,
+      "roleType":"STUDENT"
+    }
+  ,
+    "student":{
+      "parentName":"nehad",
+      "parentPhone":"07775000"
+    }
+
+  }
+}

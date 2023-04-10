@@ -1,0 +1,34 @@
+{
+ "badRequestResponse": {
+  "success": false,
+  "message": "BAD_REQUEST",
+  "dateTime": "2023-03-23T13:59:21.5097046",
+  "details": [
+    "Bad Request"
+  ]
+},
+  "internalServerErrorResponse": {
+  "success": false,
+  "message": "INTERNAL_SERVER_ERROR",
+  "dateTime": "2023-03-23T13:59:21.5097046",
+  "details": [
+    "reason of internal server error"
+  ]
+},
+  "recordNotFoundExceptionResponse": {
+    "success": false,
+    "message": "NOT_FOUND",
+    "dateTime": "2023-03-23T13:59:21.5097046",
+    "details": [
+      "record Not Found Error"
+    ]
+  },
+  "duplicateRecordExceptionResponse": {
+    "success": false,
+    "message": "CONFLICT",
+    "dateTime": "2023-03-23T13:59:21.5097046",
+    "details": [
+      "This username already exists, try another one"
+    ]
+  }
+}
