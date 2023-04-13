@@ -18,7 +18,7 @@ import java.util.List;
 @Validated
 @RestController
 @RequestMapping("${baseUrl}/product")
-@Secured("MERCHANT")
+@Secured(AppConstants.MERCHANT)
 public class ProductController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    @Secured({"MERCHANT","ADMIN"})
+    @Secured({AppConstants.MERCHANT,AppConstants.ADMIN})
     public void delete(@Valid @NotNull @PathVariable("id") Integer id) {
         productService.delete(id);
     }

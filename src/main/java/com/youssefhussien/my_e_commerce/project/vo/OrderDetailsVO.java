@@ -1,14 +1,18 @@
 package com.youssefhussien.my_e_commerce.project.vo;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 
+@ToString
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderDetailsVO {
-    @NotNull(message = "id can not null")
-    private Integer id;
 
     private Integer paymentId;
 
@@ -16,9 +20,5 @@ public class OrderDetailsVO {
     private Long userId;
 
     private BigDecimal total;
-
-    private Date createdAt;
-
-    private Date modifiedAt;
 
 }

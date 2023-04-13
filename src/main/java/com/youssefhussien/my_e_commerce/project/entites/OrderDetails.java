@@ -31,6 +31,7 @@ public class OrderDetails {
     @JoinColumn(name = "payment_id")
     private PaymentDetail payment;
 
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;

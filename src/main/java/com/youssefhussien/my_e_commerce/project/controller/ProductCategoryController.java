@@ -22,7 +22,7 @@ import java.util.List;
 @Validated
 @RestController
 @RequestMapping("${baseUrl}/productCategory")
-@Secured("ADMIN")
+@Secured(AppConstants.ADMIN)
 public class ProductCategoryController {
 
     @Autowired

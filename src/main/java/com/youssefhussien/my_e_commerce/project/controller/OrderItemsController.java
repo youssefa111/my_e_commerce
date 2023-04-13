@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Validated
 @RestController
-@RequestMapping("/orderItems")
+@RequestMapping("${baseUrl}/orderItems")
 public class OrderItemsController {
 
     @Autowired

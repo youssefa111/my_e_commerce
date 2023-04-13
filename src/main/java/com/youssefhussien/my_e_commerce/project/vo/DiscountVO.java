@@ -14,8 +14,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class
-
-
 DiscountVO {
     //   @NotNull(message = "id can not null")
     //    private Integer id;
