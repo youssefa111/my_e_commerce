@@ -1,9 +1,11 @@
 package com.youssefhussien.my_e_commerce.project.services;
 
 import com.youssefhussien.my_e_commerce.auth.user.service.UserService;
+import com.youssefhussien.my_e_commerce.core.constant.PaymentProvider;
 import com.youssefhussien.my_e_commerce.project.dto.OrderDetailsDTO;
 import com.youssefhussien.my_e_commerce.project.entites.OrderDetails;
 import com.youssefhussien.my_e_commerce.project.entites.OrderItems;
+import com.youssefhussien.my_e_commerce.project.entites.PaymentDetail;
 import com.youssefhussien.my_e_commerce.project.repository.OrderDetailRepository;
 import com.youssefhussien.my_e_commerce.project.vo.*;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 @Service
 @Slf4j
@@ -28,6 +31,8 @@ public class OrderDetailsService {
     private OrderItemsService orderItemsService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private PaymentDetailsService paymentDetailsService;
 
     @Transactional
     public Integer save(CreateOrderVO vO) {
@@ -36,7 +41,17 @@ public class OrderDetailsService {
         vO.getOrderDetailsVO().setPaymentId(null);
         BeanUtils.copyProperties(vO.getOrderDetailsVO(), orderDetailsBean);
         orderDetailsBean.setUser(userService.getById(vO.getOrderDetailsVO().getUserId()));
+
        var result = orderDetailsRepository.save(orderDetailsBean);
+      var paymentEntity =  paymentDetailsService.save(
+                PaymentDetail.builder()
+                        .orderDetail(result)
+                        .provider(vO.getPaymentType())
+                        .status(Objects.equals(vO.getPaymentType(), PaymentProvider.CASH.value) ? 0 : 1)
+                        .build()
+      );
+
+      result.setPayment(paymentEntity);
        var orderItemsResultList = orderItemsService.saveAll(vO.getOrderItemsVOList(),result);
         return result.getId();
     }

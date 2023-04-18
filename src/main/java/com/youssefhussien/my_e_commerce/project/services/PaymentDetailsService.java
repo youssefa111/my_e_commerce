@@ -29,6 +29,9 @@ public class PaymentDetailsService {
         bean = paymentDetailsRepository.save(bean);
         return bean.getId();
     }
+    public PaymentDetail save(PaymentDetail paymentDetail){
+        return paymentDetailsRepository.save(paymentDetail);
+    }
 
     public void delete(Integer id) {
         paymentDetailsRepository.deleteById(id);

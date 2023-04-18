@@ -1,6 +1,7 @@
 package com.youssefhussien.my_e_commerce.project.vo;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -21,5 +22,8 @@ public class CreateOrderVO {
     @NotEmpty
     @Valid
     private List<OrderItemsVO> orderItemsVOList;
+
+    @NotBlank
+    private String paymentType;
 
 }
