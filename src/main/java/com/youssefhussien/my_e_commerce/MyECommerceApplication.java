@@ -8,6 +8,9 @@ public class MyECommerceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyECommerceApplication.class, args);
+
+		System.out.println("test hna");
+
 	}
 
 }
